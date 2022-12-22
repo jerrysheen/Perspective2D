@@ -19,7 +19,7 @@ namespace Platformer.Mechanics
         public AudioClip respawnAudio;
         public AudioClip ouchAudio;
         protected float _currentGravity = 0;
-        public ParticleSystem m_particle;
+        //public ParticleSystem m_particle;
         
 
         /// <summary>
@@ -53,13 +53,13 @@ namespace Platformer.Mechanics
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
-            m_particle = this.transform.Find("DustParticles")?.GetComponent<ParticleSystem>();
+            //m_particle = this.transform.Find("DustParticles")?.GetComponent<ParticleSystem>();
         }
 
         protected override void OnEnable()
         {
             base.OnEnable();
-            m_particle.gameObject.SetActive(false);
+            //m_particle.gameObject.SetActive(false);
         }
 
         protected override void Update()
@@ -135,7 +135,7 @@ namespace Platformer.Mechanics
             else
             {
                 animator.SetBool("Jump", true);
-                m_particle.gameObject.SetActive(false);
+                //m_particle.gameObject.SetActive(false);
             }
 
             if (jump && IsGrounded)
@@ -178,27 +178,32 @@ namespace Platformer.Mechanics
             if (move == Vector2.zero)
             {
                 animator.SetBool("Walk", false);
-                m_particle.gameObject.SetActive(false);
+                //m_particle.gameObject.SetActive(false);
 
             }
             else
             {
                 animator.SetBool("Walk", true);
-                m_particle.gameObject.SetActive(true);
+                //m_particle.gameObject.SetActive(true);
             }
             
             // flip
-            if (move.x > 0.01f)
-            {
-                spriteRenderer.flipX = false;
-                m_particle.gameObject.transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
-            }
-            else if (move.x < -0.01f)
-            {
-                spriteRenderer.flipX = true;
-                m_particle.gameObject.transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
-            }
-            
+            // todo： 不确定flip要怎么实现， 因为感觉可以做成blendtree之类的， 没必要在这个地方手动控制。
+            // if (move.x > 0.01f)
+            // {
+            //     //spriteRenderer.flipX = false;
+            //     //m_particle.gameObject.transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
+            //     this.transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y,
+            //         this.transform.localScale.z);
+            // }
+            // else if (move.x < -0.01f)
+            // {
+            //     //spriteRenderer.flipX = true;
+            //     //m_particle.gameObject.transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
+            //     this.transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y,
+            //         this.transform.localScale.z);
+            // }
+            //
             targetVelocity = move * maxSpeed;
         }
 
