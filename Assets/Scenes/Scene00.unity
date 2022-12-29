@@ -6851,7 +6851,7 @@ MonoBehaviour:
   jumpAudio: {fileID: 0}
   respawnAudio: {fileID: 0}
   ouchAudio: {fileID: 0}
-  maxSpeed: 7
+  maxSpeed: 15
   jumpTakeOffSpeed: 45
   jumpState: 0
   collider2d: {fileID: 0}
