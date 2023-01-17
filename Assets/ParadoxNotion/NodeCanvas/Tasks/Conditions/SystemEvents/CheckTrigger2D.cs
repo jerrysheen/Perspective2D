@@ -41,6 +41,7 @@ namespace NodeCanvas.Tasks.Conditions
         }
 
         public void OnTriggerEnter2D(ParadoxNotion.EventData<Collider2D> data) {
+            Debug.LogError("Trigger test");
             if ( !specifiedTagOnly || data.value.gameObject.CompareTag(objectTag) ) {
                 stay = true;
                 if ( CheckType == TriggerTypes.TriggerEnter || CheckType == TriggerTypes.TriggerStay ) {
