@@ -37,7 +37,7 @@ namespace ParadoxNotion.Services
         void IPointerExitHandler.OnPointerExit(PointerEventData eventData) { if ( onPointerExit != null ) onPointerExit(new EventData<PointerEventData>(eventData, gameObject, this)); }
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData) { if ( onPointerDown != null ) onPointerDown(new EventData<PointerEventData>(eventData, gameObject, this)); }
         void IPointerUpHandler.OnPointerUp(PointerEventData eventData) { if ( onPointerUp != null ) onPointerUp(new EventData<PointerEventData>(eventData, gameObject, this)); }
-        void IPointerClickHandler.OnPointerClick(PointerEventData eventData) { i.ointerClick(new EventData<PointerEventData>(eventData, gameObject, this)); }
+        void IPointerClickHandler.OnPointerClick(PointerEventData eventData) { onPointerClick(new EventData<PointerEventData>(eventData, gameObject, this)); }
         void IDragHandler.OnDrag(PointerEventData eventData) { if ( onDrag != null ) onDrag(new EventData<PointerEventData>(eventData, gameObject, this)); }
         void IDropHandler.OnDrop(PointerEventData eventData) { if ( onDrop != null ) onDrop(new EventData<PointerEventData>(eventData, gameObject, this)); }
         void IScrollHandler.OnScroll(PointerEventData eventData) { if ( onScroll != null ) onScroll(new EventData<PointerEventData>(eventData, gameObject, this)); }
